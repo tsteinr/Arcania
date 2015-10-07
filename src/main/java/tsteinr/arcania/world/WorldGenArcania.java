@@ -10,6 +10,10 @@ public class WorldGenArcania implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+        int x = chunkX * 16;
+        int z = chunkZ * 16;
+        int y = 30;
+
 
     }
 

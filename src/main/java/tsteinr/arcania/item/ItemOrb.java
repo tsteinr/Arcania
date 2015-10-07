@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import tsteinr.arcania.Reference;
+import tsteinr.arcania.block.BlockEldritchSphere;
 
 public class ItemOrb extends ItemBase {
 
@@ -18,8 +19,12 @@ public class ItemOrb extends ItemBase {
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int s, float xs, float ys, float zs) {
         Block block = world.getBlock(x, y, z);
 
-        if (!world.isRemote) {
-            player.addChatComponentMessage(new ChatComponentText(block.getUnlocalizedName()));
+        if (block instanceof BlockEldritchSphere) {
+            if (!world.isRemote) {
+                player.addChatComponentMessage(new ChatComponentText("You rightclicked an Eldritch Sphere!"));
+            }
+
+            return true;
         }
 
         return false;

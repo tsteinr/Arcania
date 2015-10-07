@@ -16,15 +16,15 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-        GameRegistry.registerWorldGenerator(new WorldGenArcania(), 0);
+        ModTileEntities.init();
+        ModRecipes.init();
         ModBlocks.init();
         ModItems.init();
+        GameRegistry.registerWorldGenerator(new WorldGenArcania(), 0);
     }
 
     public void init(FMLInitializationEvent event) {
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-        ModTileEntities.init();
-        ModRecipes.init();
     }
 
     public void postInit(FMLPostInitializationEvent event) {
