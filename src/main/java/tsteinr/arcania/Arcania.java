@@ -5,6 +5,9 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import tsteinr.arcania.proxy.CommonProxy;
 
 @Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VERSION)
@@ -30,5 +33,12 @@ public class Arcania {
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
+
+    public static CreativeTabs tabArcania = new CreativeTabs(Reference.ID) {
+        @Override
+        public Item getTabIconItem() {
+            return Items.diamond;
+        }
+    };
 
 }
